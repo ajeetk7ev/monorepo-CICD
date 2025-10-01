@@ -2,6 +2,7 @@ import express from 'express';
 import { prisma } from '@repo/db/prisma'
 const app = express();
 
+app.use(express.json());
 
 app.get("/api/user", async (req, res) => {
     try {
