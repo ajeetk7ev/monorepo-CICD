@@ -1,10 +1,17 @@
+import {prisma} from '@repo/db/prisma'
 
-
-import React from 'react'
-
-function Home() {
+async function Home() {
+  const user = await prisma.user.findFirst({
+    where:{
+      email:"ajeet@gmail.com"
+    }
+  })
   return (
-    <div >Monorepo CICD</div>
+    <div >
+      <h1>User are</h1>
+      <div>email:{user?.email}</div>
+      <div>Password:{user?.password}</div>
+    </div>
   )
 }
 
